@@ -27,7 +27,7 @@ contract("TokenSale Test", async accounts => {
             return expect(balance).to.be.a.bignumber.equal(totalSupply);
         });
         
-        it("should be possible to buy one token by simply sending ether to the smart contract", async () => {
+        it("There should be possible to buy one token by sending ether to the smart contract", async () => {
             let tokenInstance = await Token.deployed();
             let tokenSaleInstance = await TokenSale.deployed();
             let balanceBeforeAccount = await tokenInstance.balanceOf.call(recipient);

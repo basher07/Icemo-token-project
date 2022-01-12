@@ -25,7 +25,7 @@ contract("Token Test", async accounts => {
     //condensed, easier readable style:
     return expect(instance.balanceOf(initialHolder)).to.eventually.be.a.bignumber.equal(totalSupply);
     });
-    it("I can send tokens from Account 1 to Account 2", async () => {
+    it("owner can send tokens from first Account to another Account ", async () => {
         const sendTokens = 1;
         let instance = this.IceToken;
         let totalSupply = await instance.totalSupply();
@@ -36,7 +36,7 @@ contract("Token Test", async accounts => {
       });
   
   
-      it("It's not possible to send more tokens than account 1 has", async () => {
+      it("there is not possible to send more tokens than first account has", async () => {
         let instance = await Token.deployed();
         let balanceOfAccount = await instance.balanceOf(initialHolder);
         await expect(instance.transfer(recipient, new BN(balanceOfAccount+1))).to.eventually.be.rejected;
